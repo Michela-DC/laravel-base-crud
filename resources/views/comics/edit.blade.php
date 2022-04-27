@@ -10,7 +10,7 @@
     </div>
 
     <div class="container">
-        <form action="{{route('comics.update', $comic)}}" method="post"> 
+        <form action="{{route('comics.update', $comic)}}" method="POST"> 
             @csrf
             @method('PUT') {{-- questo potrei anche scriverlo come <input type="hidden" name="_method" value="PUT"> --}}
             {{-- i dati del form vengono inviati alla rotta che specifico in action: 

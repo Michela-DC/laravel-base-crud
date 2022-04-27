@@ -7,7 +7,7 @@
     <h1>Add new comic</h1>
 
     <div class="container">
-        <form action="{{route('comics.store')}}" method="post"> 
+        <form action="{{route('comics.store')}}" method="POST"> 
             @csrf 
             {{-- i dati del form vengono inviati alla rotta che specifico in action, 
             nella create vengono inviati allo store, poi devo aggiungere il metodo post 
