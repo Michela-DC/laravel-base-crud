@@ -37,8 +37,10 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        // recupero i dati inseriti nel form 
         $data = $request->all();
+        //quindi $data è un array associativo formato dai dati che ci sono arrivati dal form
 
         $comic = new Comic();
 
@@ -74,7 +76,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -86,7 +88,12 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        // il metodo update passa i nuovi dati all'istanza del modello e aggiorna i dati nel database
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
@@ -97,6 +104,6 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        
     }
 }

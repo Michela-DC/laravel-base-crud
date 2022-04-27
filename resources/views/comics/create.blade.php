@@ -8,9 +8,10 @@
 
     <div class="container">
         <form action="{{route('comics.store')}}" method="post"> 
-            @csrf
-        {{-- i dati del form vengono inviati alla rotta che specifico in action
-        e devo aggiungere il metodo post eil metodo e il token di sicurezza--}}
+            @csrf 
+            {{-- i dati del form vengono inviati alla rotta che specifico in action, 
+            nella create vengono inviati allo store, poi devo aggiungere il metodo post 
+            e il token di sicurezza csrf--}}
 
             <div>
                 <label for="poster">Poster</label>

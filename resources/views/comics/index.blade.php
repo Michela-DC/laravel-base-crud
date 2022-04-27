@@ -24,6 +24,7 @@
                 <th>Sale date</th>
                 <th>Price</th>
                 <th>Show comic</th>
+                <th>Edit comic</th>
             </thead>
         
             <tbody>
@@ -52,7 +53,12 @@
                         $ {{$comic->price}}
                         </td>
                         <td>
-                            <a href="{{route ('comics.show',$comic->id)}} ">Show {{$comic->title}}</a>
+                            <a href="{{route ('comics.show',$comic->id)}} ">Show: {{$comic->title}}</a>
+                        </td>
+                        <td>
+                            <button>
+                                <a href="{{route ('comics.edit',$comic->id)}} ">Edit Comic</a>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
