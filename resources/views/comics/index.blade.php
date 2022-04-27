@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('metaTitle', 'DC Comics')
+@section('metaTitle', 'Dc Comics')
 
 @section('mainContent')
 
@@ -42,7 +42,7 @@
                     $ {{$comic->price}}
                     </td>
                     <td>
-                        <a href="">Show {{$comic->title}}</a>
+                        <a href="{{route ('comics.show',$comic->id)}} ">Show {{$comic->title}}</a>
                     </td>
                 </tr>
             @endforeach

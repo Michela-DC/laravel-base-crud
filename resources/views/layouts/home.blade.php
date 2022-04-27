@@ -10,7 +10,6 @@
     <main>
         <div class="main-container">
             @yield('mainContent')
-            Hello!
         </div>
     </main>
 </body>

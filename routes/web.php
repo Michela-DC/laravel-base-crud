@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.home');
+    return redirect()->route('comics.index');
+    // mi rimanda a index tutte le volte che arrivo alla rotta principale '/'
+    //oppure posso togliere del tutto questa rotta
 });
 
 Route::resource('comics', 'ComicController');
