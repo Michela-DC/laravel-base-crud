@@ -27,7 +27,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view ('comics.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class ComicController extends Controller
     {   
         // uso la dependency injection, quindi invece di passare a show il parametro id della tabella, gli passo un'istanza del model 
         // e sarà laravel a capire quale record prendere in base a quello che gli viene passato dalla rotta, es: nell'html ho route{{'comics.show',$comic->id}}
-        // Qundi anche al compact passo l'istanza del model
+        // Qundi anche al compact passo l'istanza del model.
     
         return view('comics.show', compact('comic'));
     }
