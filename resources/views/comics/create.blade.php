@@ -7,8 +7,10 @@
     <h1>Add new comic</h1>
 
     <div class="container">
-        <form action="{{route(comics.store)}}">
-        {{-- i dati del form vengono inviati alla rotta che specifico in action --}}
+        <form action="{{route('comics.store')}}" method="post"> 
+            @csrf
+        {{-- i dati del form vengono inviati alla rotta che specifico in action
+        e devo aggiungere il metodo post eil metodo e il token di sicurezza--}}
 
             <div>
                 <label for="poster">Poster</label>
@@ -44,7 +46,7 @@
             </div>
 
             <div>
-                <label for="price">Price</label>
+                <label for="price">U.S. Price</label>
                 <input type="text" name="price" id="price" placeholder="Insert comic price">
             </div>
 

@@ -38,7 +38,17 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $comic = new Comic();
+
+        //per far funzionare il fill devo andare nel model e creare un array protected dentro al quale inserisco i campi da assegnare con metodo fill
+        $comic->fill($data);
+
+        $comic->save();
+        
+        // una volta creato e inserito il nuovo comic ritorno alla vista della pagina show
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
@@ -64,7 +74,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        
     }
 
     /**
