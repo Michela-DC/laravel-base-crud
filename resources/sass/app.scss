@@ -1,1 +1,62 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.my-title-container{
+    background-color: $dc-blue;
+    // border: 2px solid $dc-blue;
+
+    .my-title-row{
+        width: 50%;
+        transform: skew(-15deg);
+        background-repeat: no-repeat;
+        color: #333333;
+    }
+}
+
+.my-btn{
+    background-color: $dc-blue;
+    border: 2px solid white;
+    
+    a{
+        color: white;
+
+        &:hover{
+            color: white;
+        }
+    }
+
+    &:hover{
+        border: 2px solid $dc-blue;
+    }
+}
+
+.my-submit{
+    background-color: white;
+    border: 2px solid $dc-blue;
+    color: $dc-blue;
+    
+    &:hover{
+        background-color: $dc-blue;
+        border: 2px solid white;
+        color: white;
+    }
+}
+
+.info{
+    color: $dc-blue;
+    font-weight: bold;
+}
+
+

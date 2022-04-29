@@ -1,31 +1,39 @@
 @extends('layouts.home')
 
-@section('metaTitle', 'Dc Comics')
+@section('metaTitle', 'DC Comics')
 
 @section('mainContent')
 
-    <div class="container">
-        <h1>DC Comics</h1>
-        <button>
-            <a href="{{route('comics.create')}}">
-                Add new comic
-            </a>
-        </button>
+    <div class="my-title-container">
+        <div class="my-title-row bg-light m-auto text-center py-3">
+            <h1 class="font-weight-bold mb-3">DC Comics</h1>
+        </div>
+    </div>
+    
+    <div class="container d-flex justify-content-center py-4">
+        <div class="row"> 
+            <button class="my-btn p-2 rounded">
+                <a href="{{route('comics.create')}}">
+                    Add new comic
+                </a>
+            </button>
+        </div>
     </div>
 
     <div class="container">
-        <table>
+        <table class="table">
             <thead>
-                <th>Poster</th>
-                <th>Title</th>
-                <th>Series</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>Sale date</th>
-                <th>Price</th>
-                <th>Show comic</th>
-                <th>Edit comic</th>
-                <th>Delete Comic</th>
+                <tr class="font-weight-bold">
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Series</th>
+                    <th>Type</th>
+                    <th>Sale date</th>
+                    <th>Price</th>
+                    <th>Show comic</th>
+                    <th>Edit comic</th>
+                    <th>Delete Comic</th>
+                </tr>
             </thead>
         
             <tbody>
@@ -42,9 +50,6 @@
                             {{$comic->series}}
                         </td>
                         <td>
-                            {{$comic->description}}
-                        </td>
-                        <td>
                             {{$comic->type}}
                         </td>
                         <td>
@@ -57,7 +62,7 @@
                             <a href="{{route ('comics.show',$comic->id)}} ">Show: {{$comic->title}}</a>
                         </td>
                         <td>
-                            <button>
+                            <button class="my-btn p-2 rounded">
                                 <a href="{{route ('comics.edit',$comic->id)}} ">Edit Comic</a>
                             </button>
                         </td>
@@ -67,7 +72,7 @@
                             <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
                                 @csrf {{-- il token di sicurezza va sempre messo nei form --}}
                                 @method('DELETE')
-                                <input type="submit" value="Delete">
+                                <input class="my-submit p-2 rounded" type="submit" value="Delete">
                             </form>
                         </td>
                     </tr>

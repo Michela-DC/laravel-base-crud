@@ -14,7 +14,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //recupero i dati dal db
+        //recupero tutti i dati dal db
         $comics = Comic::all();
 
         return view('comics.index', compact('comics'));
@@ -42,6 +42,7 @@ class ComicController extends Controller
         $data = $request->all();
         //quindi $data è un array associativo formato dai dati che ci sono arrivati dal form
 
+        //creo nuova istanza di Comic -> Una istanza di un Model rappresenta una riga della tabella corrispondente.
         $comic = new Comic();
 
         //per far funzionare il fill devo andare nel model e creare un array protected dentro al quale inserisco i campi da assegnare con metodo fill
