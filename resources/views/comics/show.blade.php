@@ -7,7 +7,7 @@
         <div class="row d-flex flex-column justify-content-center text-center">
             <ul class="list-unstyled">
                 <li class="mb-4">
-                    <img src="{{$comic->thumb}}" alt="">
+                    <img class="poster"  src="{{$comic->thumb}}" alt="">
                 </li>
                 <li class="mb-4">
                     <h4> {{$comic->title}} </h4>

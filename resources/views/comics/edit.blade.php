@@ -25,48 +25,80 @@
                 devo aggiungere il metodo post e il token di sicurezza csrf--}}
     
                 {{-- nella edit il form deve essere precompilato con i dati attuali dell'elemento che voglio modificare --}}
-                <div>
-                    <label class="mr-2" for="poster">Image</label>
-                    <input class="form-control mb-4" type="text" name="thumb" id="poster" value="{{$comic->thumb}}" placeholder="Insert comic image">
+                <div class="form-group">
+                    <label class="mr-2" for="thumb">Image</label>
+                    <input class="@error('thumb') is-invalid @enderror form-control mb-4" type="text" name="thumb" id="thumb" value="{{ old('thumb') ? old('thumb') : $comic->thumb}}" placeholder="Insert comic image">
+                
+                    @error('thumb')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
     
-                <div>
+                <div class="form-group">
                     <label class="mr-2" for="title">Title</label>
-                    <input class="form-control mb-4" type="text" name="title" id="title" value="{{$comic->title}}" placeholder="Insert comic title">
+                    <input class="@error('title') is-invalid @enderror form-control mb-4" type="text" name="title" id="title" value="{{old('title') ? old('title') : $comic->title}}" placeholder="Insert comic title">
+                
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
     
-                <div>
+                <div class="form-group">
                     <label class="mr-2" for="series">Series</label>
-                    <input class="form-control mb-4" type="text" name="series" id="series" value="{{$comic->series}}" placeholder="Insert comic series">
+                    <input class="@error('series') is-invalid @enderror form-control mb-4" type="text" name="series" id="series" value="{{old('series') ? old('series') : $comic->series}}" placeholder="Insert comic series">
+                
+                    @error('series')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
     
-                <div>
+                <div class="form-group">
                     <label class="mr-2" for="description">Description</label>
                     <textarea class="form-control mb-4" name="description" id="description" placeholder="Insert description" cols="24" rows="8">
                         {{$comic->description}}
                     </textarea>
                 </div>
     
-                <div>
+                <div class="form-group">
                     <label class="mr-2" for="type">Type</label>
-                    <select class="form-control mb-4" name="type" id="type" value="{{$comic->type}}">
-                        <option value="">Select type</option>
-                        <option value="comic-book" {{$comic->type == 'comic book' ? 'selected' : ''}}>comic book</option>
-                        <option value="graphic-novel" {{$comic->type == 'graphic novel' ? 'selected' : ''}}>graphic novel</option>
-                    </select>
+                    @if ( old('type') )
+                        <select class="@error('type') is-invalid @enderror form-control mb-4" name="type" id="type" value="{{$comic->type}}">
+                            <option value="">Select type</option>
+                            <option value="comic-book" {{old('type') == 'comic-book' ? 'selected' : ''}}>comic book</option>
+                            <option value="graphic-novel" {{old('type') == 'graphic-novel' ? 'selected' : ''}}>graphic novel</option>
+                        </select>
+                    @else   
+                        <select class="@error('type') is-invalid @enderror form-control mb-4" name="type" id="type" value="{{$comic->type}}">
+                            <option value="">Select type</option>
+                            <option value="comic-book" {{$comic->type == 'comic-book' ? 'selected' : ''}}>comic book</option>
+                            <option value="graphic-novel" {{$comic->type == 'graphic-novel' ? 'selected' : ''}}>graphic novel</option>
+                        </select>
+                    @endif
+
+                    @error('type')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
     
-                <div>
+                <div class="form-group">
                     <label class="mr-2" for="sale_date">Sale Date</label>
-                    <input class="form-control mb-4" type="date" name="sale_date" id="sale_date" value="{{$comic->sale_date}}"  placeholder="Insert sale date">
+                    <input class="@error('sale_date') is-invalid @enderror form-control mb-4" type="date" name="sale_date" id="sale_date" value="{{old('sale_date') ? old('sale_date') : $comic->sale_date}}"  placeholder="Insert sale date">
+                    
+                    @error('sale_date')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
     
-                <div>
+                <div class="form-group">
                     <label class="mr-2" for="price">U.S. Price</label>
-                    <input class="form-control mb-4" type="text" name="price" id="price" value="{{$comic->price}}" placeholder="Insert comic price">
+                    <input class="@error('price') is-invalid @enderror form-control mb-4" type="text" name="price" id="price" value="{{old('price') ? old('price') : $comic->price}}" placeholder="Insert comic price">
+                
+                    @error('price')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
     
-                <div class="py-2">
+                <div class="form-group py-2">
                     <input class="my-submit mb-5 py-1 px-2" type="submit" value="Edit">
                 </div>
     

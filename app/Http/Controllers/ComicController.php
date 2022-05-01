@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -38,6 +39,21 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {   
+        $request->validate([
+            'thumb' => 'required|url',
+            'title' => 'required|min:3|max:100',
+            'series' => 'required|min:3|max:100',
+            'description' => 'nullable',
+            'type' => [
+                'required',
+                'min:3',
+                'max:50',
+                Rule::in(['comic-book', 'graphic-novel'])
+            ],
+            'sale_date' => 'required',
+            'price' => 'required|numeric|between:1,999.99',
+        ]);
+
         // recupero i dati inseriti nel form 
         $data = $request->all();
         //quindi $data è un array associativo formato dai dati che ci sono arrivati dal form
@@ -77,6 +93,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
+
         return view('comics.edit', compact('comic'));
     }
 
@@ -89,6 +106,21 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate([
+            'thumb' => 'required|url',
+            'title' => 'required|min:3|max:100',
+            'series' => 'required|min:3|max:100',
+            'description' => 'nullable',
+            'type' => [
+                'required',
+                'min:3',
+                'max:50',
+                Rule::in(['comic-book', 'graphic-novel'])
+            ],
+            'sale_date' => 'required',
+            'price' => 'required|numeric|between:1,999.99',
+        ]);
+
         $data = $request->all();
 
         // il metodo update passa i nuovi dati all'istanza del modello e aggiorna i dati nel database

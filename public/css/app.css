@@ -11013,3 +11013,7 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.poster {
+  border: 5px solid #0082F9;
+}
+
