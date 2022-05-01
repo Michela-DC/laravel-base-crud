@@ -69,7 +69,7 @@
                         <td>
                             {{-- per usare il metodo destroy del controller devo creare un form con dentro:
                             la action che rimanda alla route destroy + passa il parametro, il token csrf e la direttiva @method(DELETE) --}}
-                            <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                            <form class="delete-form" action="{{route('comics.destroy', $comic->id)}}" method="POST">
                                 @csrf {{-- il token di sicurezza va sempre messo nei form --}}
                                 @method('DELETE')
                                 <input class="my-submit p-2 rounded" type="submit" value="Delete">

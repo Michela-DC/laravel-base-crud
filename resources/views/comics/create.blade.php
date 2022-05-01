@@ -49,7 +49,7 @@
     
                 <div class="form-group">
                     <label class="mr-2" for="description">Description</label>
-                    <textarea class="form-control mb-4" name="description" id="description" placeholder="Insert description" cols="24" rows="8">{{ old('description')}} </textarea>
+                    <textarea class="form-control mb-4" name="description" id="description" placeholder="Insert description" cols="24" rows="8">{{ old('description')}}</textarea>
                 </div>
     
                 <div class="form-group">
@@ -76,7 +76,7 @@
     
                 <div class="form-group">
                     <label class="mr-2" for="price">U.S. Price</label>
-                    <input class="@error('price') is-invalid @enderror form-control mb-5" type="text" name="price" value="{{ old('price')}}" id="price" placeholder="Insert comic price">
+                    <input class="price @error('price') is-invalid @enderror form-control mb-5" type="text" name="price" value="{{ old('price')}}" id="price" placeholder="Insert comic price">
 
                     @error('price')
                         <div class="alert alert-danger">{{ $message }}</div>
